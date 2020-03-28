@@ -66,7 +66,9 @@ const Visualizer = () => {
   useEffect(() => {
     // fetch service, node, pod info
     const fetchInfo = async () => {
-      service = []; node = []; pod = [];
+      service = [];
+      node = [];
+      pod = [];
 
       const serviceReq = axios.get('/getServices');
       const nodeReq = axios.get('/getNodes');
@@ -96,15 +98,16 @@ const Visualizer = () => {
         // console.log('setInterval called');
         fetchInfo();
       }, 5000);
-    }
+    };
 
     fetchOnLoad();
-  }, [])
+  }, []);
 
   return (
     <div className='appCont'>
       <DashBoard />
       <div className='visContainer'>
+        <div>{console.log(data, 'data from visualizer')}</div>
         <h4>Traffic Visualizer</h4>
         <RadialTree data={data} />
       </div>
