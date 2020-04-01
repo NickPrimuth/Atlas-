@@ -90,7 +90,7 @@ const Main_Container = () => {
       setTimeout(() => {
         // console.log('set time out');
         setLoading(false);
-      }, 2000);
+      }, 5);
     };
     // fetchInfo();
     const fetchOnLoad = () => {
@@ -118,8 +118,8 @@ const Main_Container = () => {
         ) : (
           <div>
             <Pods data={data} />
-            <Nodes />
-            <Services />
+            <Nodes data={data} />
+            <Services data={data} />
           </div>
         )}
       </div>
