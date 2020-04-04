@@ -21,7 +21,7 @@ body {
 }
 .appCont {
   display: flex;
-  width: 200vh;
+  width: 100%;
 }
 
 .dashboard {
@@ -32,7 +32,7 @@ body {
   width: 200px;
   font-family: $quicksand;
   .logo {
-    width: 100px;
+    width: 200px;
     height: 100px;
     margin: 30px;
   }
@@ -82,7 +82,7 @@ body {
   padding: 4em;
 
   .treeSvg {
-    overflow:visible;
+    overflow: visible;
   }
 
   .radialTreeSvg {
@@ -111,7 +111,7 @@ body {
   position: absolute;
   padding: 0.5em;
   width: 12em;
-  font-family: $quicksand;  
+  font-family: $quicksand;
   font-size: 12px;
   background-color: rgba(204, 204, 255, 0.8);
   border: 0px;

@@ -104,7 +104,7 @@ const Visualizer = () => {
   }, []);
 
   return (
-    <div className='appCont'>
+    <div className='mainContainer'>
       <DashBoard />
       <div className='visContainer'>
         <h4>Traffic Visualizer</h4>

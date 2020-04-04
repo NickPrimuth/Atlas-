@@ -56,7 +56,7 @@ const Alerts = () => {
   }, []);
 
   return (
-    <div className='appCont'>
+    <div className='mainContainer'>
       <Dashboard />
       <div className='alertsContainer'>
         <h4 className='alertsTitle'>Alerts</h4>

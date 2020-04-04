@@ -111,7 +111,7 @@ const Main_Container = () => {
   }, []);
 
   return (
-    <div className='appCont'>
+    <div className='mainContainer'>
       <DashBoard />
       <div className='mainContainer'>
         {stillLoading ? (
