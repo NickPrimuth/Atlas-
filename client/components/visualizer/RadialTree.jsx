@@ -245,8 +245,11 @@ const RadialTree = ({ data }) => {
   }, [data, dimensions, reanimate]);
 
   return (
-    <div ref={wrapperRef} className='svgWrapper'>
-      <svg ref={svgRef} className='radialTreeSvg'></svg>
+    <div className='visContainer'>
+      <h4>Traffic Visualizer</h4>
+      <div ref={wrapperRef} className='svgWrapper'>
+        <svg ref={svgRef} className='radialTreeSvg'></svg>
+      </div>
     </div>
   );
 };

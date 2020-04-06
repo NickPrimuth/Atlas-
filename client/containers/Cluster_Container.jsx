@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import Pods from '../components/cluster/Pods.jsx';
-import Nodes from '../components/cluster/Nodes.jsx';
-import Services from '../components/cluster/Services.jsx';
 import DashBoard from '../components/Dashboard.jsx';
 import Loader from '../components/Loader.jsx';
+import Cluster from '../components/cluster/Cluster.jsx';
+import RadialTree from '../components/visualizer/RadialTree.jsx';
+import Alerts from './Alerts_Container.jsx';
 
 const Main_Container = () => {
   let [data, setData] = useState([]);
@@ -14,6 +15,7 @@ const Main_Container = () => {
   let [service, setService] = useState([]);
   let [stillLoading, setStillLoading] = useState(true);
   let [doneFetching, setdoneFetching] = useState(false);
+  let { id } = useParams();
 
   //function to parse info back from /getPods
   function getPods(parent) {
@@ -90,6 +92,7 @@ const Main_Container = () => {
 
       setData(getServices()); //set data
       //data has been fetched and Loader component will through new animation
+
       setdoneFetching(true);
     };
     // fetching data call for initial load and every 3 seconds
@@ -108,23 +111,22 @@ const Main_Container = () => {
     })();
     //clear settimeout when component is removed from dom
     return () => clearTimeout(setInt);
-  }, []);
+  }, [id]);
 
   return (
-    <div className='appCont'>
-      <DashBoard />
+    <div className='mainContainer'>
       <div className='mainContainer'>
         {stillLoading ? (
           <Loader
             setStillLoading={setStillLoading}
             doneFetching={doneFetching}
           />
+        ) : id === 'cluster' && data ? (
+          <Cluster data={data} />
+        ) : id === 'visualizer' && data ? (
+          <RadialTree data={data} />
         ) : (
-          <div>
-            <Pods data={data} />
-            <Nodes data={data} />
-            <Services data={data} />
-          </div>
+          <Alerts data={data} />
         )}
       </div>
     </div>
